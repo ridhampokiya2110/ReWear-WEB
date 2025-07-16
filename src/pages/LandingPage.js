@@ -252,10 +252,10 @@ const LandingPage = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-4xl font-bold text-black mb-2">
+                <div className="text-4xl font-bold stylish-impact mb-2">
                   {stat.number}
                 </div>
-                <div className="text-black">
+                <div className="stylish-impact">
                   {stat.label}
                 </div>
               </motion.div>
