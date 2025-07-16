@@ -143,8 +143,7 @@ Odoo-Hackathon/
    ```
 
 6. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
+   - Frontend: https://rewear-web.netlify.app
 
 ## 🔧 Configuration
 
