@@ -1,0 +1,26 @@
+services:
+  # Backend API
+  - type: web
+    name: rewear-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CLIENT_URL
+        value: https://rewear-frontend.onrender.com
+
+  # Frontend
+  - type: web
+    name: rewear-frontend
+    env: static
+    plan: free
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://rewear-backend.onrender.com 
