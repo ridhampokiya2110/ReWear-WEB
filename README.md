@@ -240,13 +240,6 @@ npm test
 
 This project is licensed under the MIT License.
 
-## 👥 Team
-
-**CodeX Team**
-- Email: 24ic02it002.ppsu.ac.in
-- Project: ReWear - Community Clothing Exchange
-- Hackathon: Odoo Hackathon
-
 ## 🌟 Future Enhancements
 
 - Real-time chat for swap negotiations
