@@ -68,8 +68,7 @@ ReWear is a web-based platform that enables users to exchange unused clothing th
 
 ## 📁 Project Structure
 
-```
-Odoo-Hackathon/
+REWEAR-PROJECT/
 ├── server/
 │   ├── index.js              # Main server file
 │   ├── routes/
