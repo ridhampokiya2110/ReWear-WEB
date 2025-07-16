@@ -68,7 +68,7 @@ ReWear is a web-based platform that enables users to exchange unused clothing th
 
 ## 📁 Project Structure
 
-REWEAR-PROJECT/
+' 'REWEAR-PROJECT/
 ├── server/
 │   ├── index.js              # Main server file
 │   ├── routes/
