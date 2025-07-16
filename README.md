@@ -67,7 +67,7 @@ ReWear is a web-based platform that enables users to exchange unused clothing th
 - **React Hot Toast** for notifications
 
 ## 📁 Project Structure
--'''
+-```
 -REWEAR-PROJECT/
 ├── server/
 │   ├── index.js              # Main server file
