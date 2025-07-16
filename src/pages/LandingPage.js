@@ -234,7 +234,7 @@ const LandingPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-black mb-4">
               Our Impact
             </h2>
             <p className="text-xl text-primary-100">
