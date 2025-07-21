@@ -171,7 +171,7 @@ const LandingPage = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredItems.slice(0, 6).map((item, index) => (
+              {(featuredItems && Array.isArray(featuredItems) ? featuredItems.slice(0, 6) : []).map((item, index) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}

@@ -60,7 +60,7 @@ git push -u origin main
    - **Plan**: `Free`
 
 4. **Add Environment Variables:**
-   - `REACT_APP_API_URL` = `https://rewear-backend.onrender.com`
+   - `REACT_APP_API_URL` = `https://rewear-web.netlify.app`
 
 5. **Click "Create Static Site"**
 
