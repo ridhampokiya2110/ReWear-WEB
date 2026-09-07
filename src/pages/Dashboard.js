@@ -49,28 +49,9 @@ const Dashboard = () => {
     }
   };
 
-  const handleProfileUpdate = async (e) => {
-    e.preventDefault();
-    try {
-      await updateProfile(profileData);
-      setEditingProfile(false);
-    } catch (error) {
-      console.error('Profile update failed:', error);
-    }
-  };
 
-  const handleDeleteItem = async (itemId) => {
-    if (window.confirm('Are you sure you want to delete this item?')) {
-      try {
-        await axios.delete(`/api/items/${itemId}`);
-        setUserItems(userItems.filter(item => item.id !== itemId));
-        toast.success('Item deleted successfully');
-      } catch (error) {
-        console.error('Failed to delete item:', error);
-        toast.error('Failed to delete item');
-      }
-    }
-  };
+
+
 
   const getSwapStatusColor = (status) => {
     switch (status) {
@@ -165,42 +146,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              {editingProfile ? (
-                <form onSubmit={handleProfileUpdate} className="mt-6 space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      value={profileData.name}
-                      onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
-                      className="input-field"
-                      required
-                    />
-                  </div>
-                  <div className="flex space-x-2">
-                    <button type="submit" className="btn-primary flex-1">
-                      Save
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setEditingProfile(false)}
-                      className="btn-secondary flex-1"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <button
-                  onClick={() => setEditingProfile(true)}
-                  className="btn-secondary w-full mt-6 flex items-center justify-center space-x-2"
-                >
-                  <FaEdit />
-                  <span>Edit Profile</span>
-                </button>
-              )}
+
             </div>
           </motion.div>
 
@@ -215,19 +161,14 @@ const Dashboard = () => {
             <div className="card">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-gray-900">My Items</h3>
-                <Link to="/add-item" className="btn-primary flex items-center space-x-2">
-                  <FaPlus />
-                  <span>Add Item</span>
-                </Link>
+
               </div>
 
               {userItems.length === 0 ? (
                 <div className="text-center py-8">
                   <FaLeaf className="text-4xl text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-600 mb-4">You haven't listed any items yet.</p>
-                  <Link to="/add-item" className="btn-primary">
-                    List Your First Item
-                  </Link>
+
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -244,15 +185,7 @@ const Dashboard = () => {
                             </span>
                           </div>
                         </div>
-                        <div className="flex space-x-2">
-                          <button
-                            onClick={() => handleDeleteItem(item.id)}
-                            className="text-red-500 hover:text-red-700"
-                            title="Delete item"
-                          >
-                            <FaTrash />
-                          </button>
-                        </div>
+
                       </div>
                     </div>
                   ))}

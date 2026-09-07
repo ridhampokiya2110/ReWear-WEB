@@ -49,13 +49,7 @@ const Navbar = () => {
                 >
                   Dashboard
                 </Link>
-                <Link 
-                  to="/add-item" 
-                  className="btn-primary flex items-center space-x-2"
-                >
-                  <FaPlus className="text-sm" />
-                  <span>List Item</span>
-                </Link>
+
                 {isAdmin && (
                   <Link 
                     to="/admin" 
@@ -138,13 +132,7 @@ const Navbar = () => {
                   >
                     Dashboard
                   </Link>
-                  <Link
-                    to="/add-item"
-                    className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    List Item
-                  </Link>
+
                   {isAdmin && (
                     <Link
                       to="/admin"

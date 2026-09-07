@@ -40,33 +40,7 @@ const ItemDetail = () => {
     fetchItem();
   }, [id]);
 
-  const handleSwapRequest = async () => {
-    if (!isAuthenticated) {
-      toast.error('Please login to request a swap');
-      navigate('/login');
-      return;
-    }
 
-    try {
-      await axios.post(`/api/swaps/request`, {
-        itemId: id,
-        requesterId: user.id
-      });
-      toast.success('Swap request sent successfully!');
-    } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to send swap request');
-    }
-  };
-
-  const handleContactOwner = () => {
-    if (!isAuthenticated) {
-      toast.error('Please login to contact the owner');
-      navigate('/login');
-      return;
-    }
-    // Implement contact functionality
-    toast.success('Contact feature coming soon!');
-  };
 
   if (loading) {
     return (
@@ -209,32 +183,7 @@ const ItemDetail = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="space-y-3">
-                {user && item.owner._id === user.id ? (
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <p className="text-blue-800 text-center">This is your item</p>
-                  </div>
-                ) : (
-                  <>
-                    <button
-                      onClick={handleSwapRequest}
-                      className="w-full bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center"
-                    >
-                      <FaExchangeAlt className="mr-2" />
-                      Request Swap
-                    </button>
-                    
-                    <button
-                      onClick={handleContactOwner}
-                      className="w-full bg-gray-500 text-white py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center"
-                    >
-                      <FaEnvelope className="mr-2" />
-                      Contact Owner
-                    </button>
-                  </>
-                )}
-              </div>
+
 
               {/* Tags */}
               {item.tags && item.tags.length > 0 && (
