@@ -1,26 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 import { 
   FaLeaf, 
-  FaUser, 
-  FaSignOutAlt, 
-  FaPlus, 
-  FaSearch, 
   FaBars, 
-  FaTimes,
-  FaCog
+  FaTimes
 } from 'react-icons/fa';
 
 const Navbar = () => {
-  const { user, logout, isAdmin } = useAuth();
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
 
   return (
     <nav className="bg-white shadow-sustainable border-b border-green-100 fixed w-full top-0 z-50">
@@ -40,65 +27,7 @@ const Navbar = () => {
             >
               Browse Items
             </Link>
-            
-            {user ? (
-              <>
-                <Link 
-                  to="/dashboard" 
-                  className="text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                >
-                  Dashboard
-                </Link>
-
-                {isAdmin && (
-                  <Link 
-                    to="/admin" 
-                    className="text-gray-700 hover:text-primary-600 transition-colors duration-200 flex items-center space-x-1"
-                  >
-                    <FaCog />
-                    <span>Admin</span>
-                  </Link>
-                )}
-              </>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <Link 
-                  to="/login" 
-                  className="text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                >
-                  Login
-                </Link>
-                <Link 
-                  to="/register" 
-                  className="btn-primary"
-                >
-                  Sign Up
-                </Link>
-              </div>
-            )}
           </div>
-
-          {/* User Menu */}
-          {user && (
-            <div className="hidden md:flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <FaUser className="text-primary-600 text-sm" />
-                </div>
-                <div className="text-sm">
-                  <div className="font-medium text-gray-900">{user.name}</div>
-                  <div className="text-primary-600">{user.points} points</div>
-                </div>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="text-gray-500 hover:text-red-600 transition-colors duration-200"
-                title="Logout"
-              >
-                <FaSignOutAlt />
-              </button>
-            </div>
-          )}
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -122,59 +51,6 @@ const Navbar = () => {
               >
                 Browse Items
               </Link>
-              
-              {user ? (
-                <>
-                  <Link
-                    to="/dashboard"
-                    className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Dashboard
-                  </Link>
-
-                  {isAdmin && (
-                    <Link
-                      to="/admin"
-                      className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Admin Panel
-                    </Link>
-                  )}
-                  <div className="border-t border-gray-200 pt-2 mt-2">
-                    <div className="px-3 py-2 text-sm text-gray-500">
-                      {user.name} • {user.points} points
-                    </div>
-                    <button
-                      onClick={() => {
-                        handleLogout();
-                        setIsMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-3 py-2 text-red-600 hover:text-red-800 transition-colors duration-200"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <Link
-                    to="/login"
-                    className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sign Up
-                  </Link>
-                </>
-              )}
             </div>
           </div>
         )}
