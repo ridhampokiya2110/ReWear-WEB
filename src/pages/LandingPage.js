@@ -86,7 +86,7 @@ const LandingPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  to="/register" 
+                  to="/browse" 
                   className="btn-primary text-lg px-8 py-3 flex items-center justify-center space-x-2"
                 >
                   <span>Start Swapping</span>
@@ -282,7 +282,7 @@ const LandingPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                to="/register" 
+                to="/browse" 
                 className="btn-primary text-lg px-8 py-3 flex items-center justify-center space-x-2"
               >
                 <span>Join ReWear Today</span>

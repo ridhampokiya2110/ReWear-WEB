@@ -35,7 +35,13 @@ const BrowseItems = () => {
       if (filters.condition) params.append('condition', filters.condition);
 
       const response = await axios.get(`/api/items?${params.toString()}`);
-      setItems(response.data);
+      if (Array.isArray(response.data)) {
+        setItems(response.data);
+      } else {
+        console.error('API returned non-array:', response.data);
+        setItems([]);
+        toast.error('Could not load items properly. Please check your backend connection.');
+      }
     } catch (error) {
       console.error('Failed to fetch items:', error);
       toast.error('Failed to load items');
